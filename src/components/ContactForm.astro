@@ -1,0 +1,282 @@
+---
+---
+
+<form id="contact-form" class="contact-form" novalidate>
+  <!-- Honeypot anti-spam -->
+  <div class="form-group-hp" aria-hidden="true">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+  </div>
+  <input type="hidden" name="_loaded" id="_loaded" value="" />
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="prenom">First name</label>
+      <input type="text" id="prenom" name="prenom" autocomplete="given-name" />
+    </div>
+    <div class="form-group">
+      <label for="nom">Last name</label>
+      <input type="text" id="nom" name="nom" autocomplete="family-name" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="organisation">Organization <span class="required">*</span></label>
+    <input type="text" id="organisation" name="organisation" required autocomplete="organization" />
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="telephone">Phone</label>
+      <input type="tel" id="telephone" name="telephone" autocomplete="tel" />
+    </div>
+    <div class="form-group">
+      <label for="email">Email <span class="required">*</span></label>
+      <input type="email" id="email" name="email" required autocomplete="email" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Questions or needs</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+  </div>
+
+  <fieldset class="form-fieldset">
+    <legend class="form-fieldset-legend">Best time to reach you</legend>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="moment-date">Preferred date</label>
+        <input type="date" id="moment-date" name="moment-date" />
+      </div>
+      <div class="form-group">
+        <label for="moment-heure">Preferred time</label>
+        <select id="moment-heure" name="moment-heure">
+          <option value="" disabled selected>Select a time slot</option>
+          <option value="08:00">08:00</option>
+          <option value="08:30">08:30</option>
+          <option value="09:00">09:00</option>
+          <option value="09:30">09:30</option>
+          <option value="10:00">10:00</option>
+          <option value="10:30">10:30</option>
+          <option value="11:00">11:00</option>
+          <option value="11:30">11:30</option>
+          <option value="12:00">12:00</option>
+          <option value="12:30">12:30</option>
+          <option value="13:00">13:00</option>
+          <option value="13:30">13:30</option>
+          <option value="14:00">14:00</option>
+          <option value="14:30">14:30</option>
+          <option value="15:00">15:00</option>
+          <option value="15:30">15:30</option>
+          <option value="16:00">16:00</option>
+          <option value="16:30">16:30</option>
+          <option value="17:00">17:00</option>
+          <option value="17:30">17:30</option>
+        </select>
+        <span class="form-hint">Mon. to Fri., Eastern Time</span>
+      </div>
+    </div>
+  </fieldset>
+
+  <button type="submit" class="btn btn-primary form-submit">Send</button>
+
+  <div id="form-status" class="form-status" hidden></div>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const status = document.getElementById('form-status') as HTMLDivElement;
+  const submitBtn = form.querySelector('.form-submit') as HTMLButtonElement;
+  const loadedField = document.getElementById('_loaded') as HTMLInputElement;
+  loadedField.value = Date.now().toString();
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.hidden = true;
+
+    const formData = new FormData(form);
+    const data: Record<string, string> = {};
+    formData.forEach((value, key) => {
+      data[key] = value as string;
+    });
+
+    const momentDate = data['moment-date'];
+    const momentHeure = data['moment-heure'];
+    if (momentDate && momentHeure) {
+      data.moment = `${momentDate}T${momentHeure}`;
+    }
+    delete data['moment-date'];
+    delete data['moment-heure'];
+
+    if (!data.organisation || !data.email) {
+      status.hidden = false;
+      status.className = 'form-status form-status-error';
+      status.textContent = 'Please fill in all required fields.';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (res.ok) {
+        status.hidden = false;
+        status.className = 'form-status form-status-success';
+        status.textContent = 'Message sent successfully. Our team will get back to you shortly.';
+        form.reset();
+      } else {
+        status.hidden = false;
+        status.className = 'form-status form-status-error';
+        status.textContent = result.error || 'An error occurred.';
+      }
+    } catch {
+      status.hidden = false;
+      status.className = 'form-status form-status-error';
+      status.textContent = 'Connection error. Please try again.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send';
+    }
+  });
+</script>
+
+<style>
+  .form-group-hp {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .required {
+    color: var(--color-accent);
+  }
+
+  .form-group select,
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    transition: border-color var(--transition-soft), box-shadow var(--transition-soft);
+    outline: none;
+  }
+
+  .form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23718096' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  .form-group select:focus,
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 6rem;
+  }
+
+  .form-fieldset {
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius);
+    margin: 0;
+    padding: 1.25rem;
+  }
+
+  .form-fieldset-legend {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    padding: 0 0.5rem;
+  }
+
+  .form-hint {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-top: 0.125rem;
+  }
+
+  .form-submit {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-status {
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .form-status-success {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--color-success);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+  }
+
+  .form-status-error {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #DC2626;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+  }
+
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy | UnionPulse.com" description="Privacy policy for UnionPulse.com, in compliance with applicable privacy legislation.">
+  <section class="privacy-hero">
+    <div class="privacy-hero-blob"></div>
+    <div class="privacy-hero-inner">
+      <p class="privacy-hero-label">Legal information</p>
+      <h1 class="privacy-hero-title">Privacy Policy</h1>
+      <p class="privacy-hero-subtitle">Protection of your personal information</p>
+    </div>
+  </section>
+
+  <div class="wave-divider">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+      <path d="M0,60 C200,20 400,50 600,30 C800,10 1000,45 1200,25 L1200,0 L0,0 Z" fill="var(--color-bg-dark)"/>
+    </svg>
+  </div>
+
+  <section class="section">
+    <div class="section-inner privacy-content">
+
+      <h2>Data Controller</h2>
+      <p>
+        The website unionpulse.com is operated by Neosapiens Inc., responsible for the collection and processing of personal information gathered through this site.
+      </p>
+      <p>
+        Neosapiens Inc.<br />
+        1305 du Blizzard Street, Suite 105<br />
+        Quebec City, QC G2K 0A1, Canada<br />
+        Email: <a href="mailto:info@neosapiens.com">info@neosapiens.com</a>
+      </p>
+
+      <h2>Data Collected</h2>
+      <p>
+        Through the contact form available on this site, the following personal information may be collected:
+      </p>
+      <ul>
+        <li>First name</li>
+        <li>Last name</li>
+        <li>Organization name</li>
+        <li>Phone number</li>
+        <li>Email address</li>
+        <li>Message (questions or needs)</li>
+        <li>Preferred date and time for a call</li>
+      </ul>
+      <p>
+        Additionally, if the user consents, anonymized browsing data is collected by Google Analytics for audience measurement purposes (pages visited, session duration, device type, approximate location).
+      </p>
+
+      <h2>Purpose of Collection</h2>
+      <p>
+        The personal information collected is used for the following purposes:
+      </p>
+      <ul>
+        <li>Responding to inquiries submitted through the contact form</li>
+        <li>Communicating with the individual regarding their request</li>
+        <li>Scheduling a call based on the indicated availability</li>
+      </ul>
+
+      <h2>Data Retention</h2>
+      <p>
+        Personal information collected through the contact form is retained only for the time necessary to process the request. Once the request has been processed and the exchange completed, the data is deleted within a reasonable timeframe, unless a legal obligation requires its retention.
+      </p>
+
+      <h2>Data Hosting and Transfer</h2>
+      <p>
+        The website unionpulse.com is hosted on the Vercel platform. Notification emails related to the contact form are sent through the Resend service.
+      </p>
+      <p>
+        Neosapiens is committed to using providers whose infrastructure is located in Canada or whose practices comply with applicable privacy legislation.
+      </p>
+
+      <h2>User Rights</h2>
+      <p>
+        In accordance with applicable privacy legislation, every individual has the following rights:
+      </p>
+      <ul>
+        <li>Right to access their personal information</li>
+        <li>Right to rectify inaccurate, incomplete or misleading information</li>
+        <li>Right to delete personal information when its retention is no longer necessary for the purposes for which it was collected</li>
+      </ul>
+      <p>
+        To exercise these rights, please contact Neosapiens at <a href="mailto:info@neosapiens.com">info@neosapiens.com</a>. A response will be provided within 30 days of receiving the request.
+      </p>
+
+      <h2>Cookies and Tracking Technologies</h2>
+      <p>
+        The website unionpulse.com uses Google Analytics, an audience measurement service provided by Google. This tool places cookies in the user's browser to collect anonymized data on site traffic (pages visited, session duration, device type, approximate location). IP addresses are anonymized.
+      </p>
+      <p>
+        These cookies are only enabled after the user's explicit consent, collected through a banner displayed on the first visit. The user may decline these cookies without affecting site navigation.
+      </p>
+      <p>
+        Apart from Google Analytics, only strictly necessary technical cookies, such as those managed by the host Vercel, may be used.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For any questions regarding this privacy policy or the processing of your personal information, please contact Neosapiens:
+      </p>
+      <p>
+        Email: <a href="mailto:info@neosapiens.com">info@neosapiens.com</a><br />
+        Phone: 1-866-968-0961
+      </p>
+
+      <h2>Effective Date</h2>
+      <p>
+        This privacy policy has been in effect since February 13, 2026.
+      </p>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .privacy-hero {
+    background: linear-gradient(170deg, var(--color-bg-dark) 0%, var(--color-bg-dark-alt) 60%, #1E3050 100%);
+    color: #fff;
+    padding: 5rem 2rem 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .privacy-hero-blob {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 40vw;
+    height: 40vw;
+    background: rgba(59, 130, 246, 0.06);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: blobMorph 12s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  @keyframes blobMorph {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    33% { border-radius: 40% 60% 70% 30% / 30% 60% 40% 70%; }
+    66% { border-radius: 30% 70% 40% 60% / 60% 40% 70% 30%; }
+  }
+
+  .privacy-hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .privacy-hero-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+  }
+
+  .privacy-hero-title {
+    font-size: 2.75rem;
+    color: #fff;
+  }
+
+  .privacy-hero-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.75rem;
+  }
+
+  .wave-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: -1px;
+  }
+
+  .wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 60px;
+  }
+
+  .privacy-content {
+    max-width: 42rem;
+  }
+
+  .privacy-content h2 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+  }
+
+  .privacy-content h2:first-child {
+    margin-top: 0;
+  }
+
+  .privacy-content p {
+    margin-bottom: 1.25rem;
+    color: var(--color-text);
+    line-height: 1.75;
+    font-size: 1.0625rem;
+  }
+
+  .privacy-content ul {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .privacy-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    font-size: 1.0625rem;
+  }
+
+  .privacy-content a {
+    color: var(--color-accent);
+    transition: color var(--transition);
+  }
+
+  .privacy-content a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  @media (max-width: 768px) {
+    .privacy-hero {
+      padding: 3.5rem 1.25rem 3rem;
+    }
+
+    .privacy-hero-title {
+      font-size: 2rem;
+    }
+
+    .wave-divider svg {
+      height: 30px;
+    }
+
+    .privacy-content p,
+    .privacy-content li {
+      font-size: 1rem;
+    }
+  }
+</style>

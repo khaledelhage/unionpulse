@@ -1,0 +1,158 @@
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <div class="cookie-banner-inner">
+    <p class="cookie-banner-text">
+      This site uses Google Analytics to measure traffic. These cookies are only enabled with your consent.
+      <a href="/privacy">Learn more</a>
+    </p>
+    <div class="cookie-banner-actions">
+      <button class="cookie-btn cookie-btn-reject" id="cookie-reject">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookie-accept">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ gaId: 'G-XXXXXXXXXX' }}>
+  (function () {
+    var COOKIE_KEY = 'cookie_consent';
+    var banner = document.getElementById('cookie-banner');
+    var consent = localStorage.getItem(COOKIE_KEY);
+
+    function loadGA() {
+      if (document.getElementById('ga-script')) return;
+      var s = document.createElement('script');
+      s.id = 'ga-script';
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', gaId, { anonymize_ip: true });
+    }
+
+    function showBanner() {
+      if (banner) banner.classList.add('visible');
+    }
+
+    function hideBanner() {
+      if (banner) banner.classList.remove('visible');
+    }
+
+    if (consent === 'accepted') {
+      loadGA();
+    } else if (consent === 'rejected') {
+      // do nothing
+    } else {
+      showBanner();
+    }
+
+    document.getElementById('cookie-accept')?.addEventListener('click', function () {
+      localStorage.setItem(COOKIE_KEY, 'accepted');
+      hideBanner();
+      loadGA();
+    });
+
+    document.getElementById('cookie-reject')?.addEventListener('click', function () {
+      localStorage.setItem(COOKIE_KEY, 'rejected');
+      hideBanner();
+    });
+  })();
+</script>
+
+<style is:global>
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--color-bg-dark, #0F1B2D);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.25rem 2rem;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .cookie-banner.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cookie-banner-inner {
+    max-width: var(--max-width, 1120px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .cookie-banner-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .cookie-banner-text a {
+    color: var(--color-accent, #3B82F6);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .cookie-banner-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .cookie-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-pill, 9999px);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+    font-family: var(--font-body, system-ui, sans-serif);
+  }
+
+  .cookie-btn-reject {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .cookie-btn-reject:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .cookie-btn-accept {
+    background: var(--color-accent, #3B82F6);
+    color: #fff;
+  }
+
+  .cookie-btn-accept:hover {
+    background: var(--color-accent-hover, #2563EB);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    .cookie-banner {
+      padding: 1rem 1.25rem;
+    }
+
+    .cookie-banner-inner {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .cookie-banner-actions {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

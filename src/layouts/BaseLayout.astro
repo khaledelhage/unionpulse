@@ -1,0 +1,247 @@
+---
+import '../styles/global.css';
+import CookieConsent from '../components/CookieConsent.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Union Pulse - A dedicated software solution for union management. Over 20 years of expertise serving the union mission.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="/" class="logo">
+          <img src="/images/unionpulse_logo.png" alt="Union Pulse" class="logo-img" />
+        </a>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#steps">How it works</a></li>
+          <li><a href="#contact" class="btn btn-primary btn-nav">Contact us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-logo">UnionPulse.com</span>
+          <p>Powered by Neosapiens Inc.</p>
+        </div>
+        <div class="footer-contact">
+          <p><a href="mailto:info@neosapiens.com">info@neosapiens.com</a></p>
+          <p><a href="tel:+18669680961">1-866-968-0961</a></p>
+        </div>
+        <div class="footer-links">
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+        <div class="footer-copy">
+          <p>&copy; {new Date().getFullYear()} UnionPulse.com. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <CookieConsent />
+
+    <script>
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.querySelector('.nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          links.classList.toggle('nav-open');
+        });
+        links.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            toggle.setAttribute('aria-expanded', 'false');
+            links.classList.remove('nav-open');
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-img {
+    height: 104px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color var(--transition);
+  }
+
+  .nav-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .btn-nav {
+    color: #FFFFFF !important;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: all var(--transition);
+  }
+
+  .footer {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
+    padding: 3rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+
+  .footer-brand p {
+    font-size: 0.875rem;
+    color: var(--color-text-on-dark);
+    margin-top: 0.25rem;
+  }
+
+  .footer-contact a {
+    color: var(--color-text-on-dark);
+    font-size: 0.95rem;
+  }
+
+  .footer-contact a:hover {
+    color: #FFFFFF;
+  }
+
+  .footer-links a {
+    color: var(--color-text-on-dark);
+    font-size: 0.85rem;
+    opacity: 0.7;
+    transition: opacity var(--transition);
+  }
+
+  .footer-links a:hover {
+    opacity: 1;
+    color: #FFFFFF;
+  }
+
+  .footer-copy p {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background-color: #FFFFFF;
+      padding: 1.5rem;
+      gap: 1rem;
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-links.nav-open {
+      display: flex;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

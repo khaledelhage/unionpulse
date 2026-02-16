@@ -1,0 +1,550 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout title="Union Pulse — A Dedicated Software Solution for Union Management">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-badge">Powered by Neosapiens Inc.</p>
+      <h1>A Dedicated Software Solution for Union Management</h1>
+      <p class="hero-subtitle">Over 20 years of expertise serving the union mission</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary btn-lg">Get a demo</a>
+        <a href="#features" class="btn btn-outline btn-lg">Explore features</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Built for you</h2>
+        <p>Union Pulse is a platform dedicated to union organizations, designed to meet your specific management needs. With over 20 years of expertise, we offer a complete solution to centralize and optimize your operations.</p>
+      </div>
+
+      <div class="modules-grid">
+        <div class="module-card">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+          </div>
+          <h3>Member Management</h3>
+          <p>Optimize your union management with our member management tool. Find accurate information quickly with our advanced search engine and benefit from automatic updates for always up-to-date data.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg>
+          </div>
+          <h3>Union Structure</h3>
+          <p>Whatever the complexity of your union structure, our platform is designed to accurately reflect your sections, local units, delegations and committees, with detailed indexing of your collective agreement articles.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          </div>
+          <h3>Mass Email</h3>
+          <p>Communicate effectively with your members through our mass email module. With tailored templates and integrated mailing list management, stay in touch while complying with current regulations.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/></svg>
+          </div>
+          <h3>Grievance &amp; Health &amp; Safety</h3>
+          <p>Ensure rigorous tracking of your grievance and health &amp; safety files. With automated reminders and a secure platform, Union Pulse keeps you organized and informed at every step.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.049.58.025 1.192-.14 1.743z"/></svg>
+          </div>
+          <h3>Legal Case Management</h3>
+          <p>Stay on top of your legal cases, whether handled internally or by third parties. Our module gives you complete visibility for proactive management of your legal affairs.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"/></svg>
+          </div>
+          <h3>Event Management</h3>
+          <p>Organize your union events from A to Z. From planning to attendance management, our module provides all the tools you need for successful events.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15v-3.75m0 0h-.008v.008H6.75v-.008zm0 0c.32-.026.643-.049.967-.069"/></svg>
+          </div>
+          <h3>Union Training</h3>
+          <p>Offer relevant training to your members. With a course catalog and participation tracking, ensure every member receives the training they need.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/></svg>
+          </div>
+          <h3>Union Leave Management</h3>
+          <p>Simplify union leave management with our dedicated module. Generate, track and invoice your leaves with ease.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5v2.25h-7.5V6zM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0012 2.25z"/></svg>
+          </div>
+          <h3>Expense Account Management</h3>
+          <p>Optimize reimbursement of your union representatives' expenses. With automated rules and accounting integration, our module simplifies every step of the process.</p>
+        </div>
+
+        <div class="module-card module-card-cta">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+          </div>
+          <h3>And much more</h3>
+          <p>Beyond the modules presented, we offer an extensive range of features and modules designed to meet all union needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section section-dark" id="steps">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>3 simple steps to get started</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Select your options</h3>
+          <p>Based on your specific needs and organizational challenges, select the modules that will effectively address your requirements.</p>
+        </div>
+
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Configuration and setup</h3>
+          <p>This process includes importing your existing data into the system and configuring your specific settings.</p>
+        </div>
+
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Personalized training</h3>
+          <p>We offer training sessions tailored to your needs, ensuring a quick and efficient adoption of your new system.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section class="section section-alt" id="support">
+    <div class="section-inner">
+      <div class="accompagnement-layout">
+        <div class="accompagnement-content">
+          <h2>Take advantage of our turnkey support</h2>
+          <ul class="accompagnement-list">
+            <li>
+              <span class="check-icon">&#10003;</span>
+              We handle the transfer of your data
+            </li>
+            <li>
+              <span class="check-icon">&#10003;</span>
+              We provide personalized, tailored training
+            </li>
+            <li>
+              <span class="check-icon">&#10003;</span>
+              We configure Union Pulse to match your management needs
+            </li>
+            <li>
+              <span class="check-icon">&#10003;</span>
+              We constantly work to improve features and develop Union Pulse to meet your needs
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-lg">Schedule a demo</a>
+        </div>
+        <div class="accompagnement-visual">
+          <div class="experience-badge">
+            <span class="experience-number">20+</span>
+            <span class="experience-label">years of expertise</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section-dark" id="contact">
+    <div class="section-inner">
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h2>Let's talk about your needs</h2>
+          <p class="contact-subtitle">Demo request or general inquiry</p>
+          <p>Whether you need a personalized demo, have questions about our features, or simply want to learn more, our team is here to help.</p>
+          <p class="contact-note">We will get back to you as soon as possible.</p>
+          <div class="contact-direct">
+            <p><a href="mailto:info@neosapiens.com">info@neosapiens.com</a></p>
+            <p><a href="tel:+18669680961">1-866-968-0961</a></p>
+          </div>
+        </div>
+        <div class="contact-form-wrapper">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-dark-alt) 100%);
+    color: #FFFFFF;
+    padding: 10rem 1.5rem 6rem;
+    text-align: center;
+  }
+
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    color: #FFFFFF;
+    font-size: 3.2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-on-dark);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Modules grid */
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .module-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: all var(--transition);
+  }
+
+  .module-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+  }
+
+  .module-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-accent-light);
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    color: var(--color-accent);
+  }
+
+  .module-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .module-card h3 {
+    text-transform: none;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .module-card p {
+    font-size: 0.925rem;
+    color: var(--color-text-light);
+    line-height: 1.65;
+  }
+
+  .module-card-cta {
+    background: linear-gradient(135deg, var(--color-accent-light), #FFFFFF);
+    border-color: var(--color-accent);
+  }
+
+  /* Support */
+  .accompagnement-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .accompagnement-content h2 {
+    margin-bottom: 2rem;
+  }
+
+  .accompagnement-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .accompagnement-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .check-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(59, 130, 246, 0.2);
+    color: var(--color-accent);
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .accompagnement-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .experience-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+    text-align: center;
+    box-shadow: 0 0 60px rgba(59, 130, 246, 0.3);
+  }
+
+  .experience-number {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1;
+  }
+
+  .experience-label {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.25rem;
+  }
+
+  /* Steps */
+  .steps-grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .step-card {
+    flex: 1;
+    max-width: 320px;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .step-number {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 50%;
+  }
+
+  .step-card h3 {
+    text-transform: none;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-card p {
+    font-size: 0.925rem;
+    color: var(--color-text-light);
+    line-height: 1.65;
+  }
+
+  .step-arrow {
+    display: flex;
+    align-items: center;
+    padding-top: 2.5rem;
+    color: var(--color-border);
+  }
+
+  .step-arrow svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Contact */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+
+  .contact-info h2 {
+    margin-bottom: 1rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-on-dark);
+  }
+
+  .contact-note {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--color-text-on-dark);
+    opacity: 0.8;
+  }
+
+  .contact-direct {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-direct a {
+    color: #FFFFFF;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .contact-direct a:hover {
+    color: var(--color-accent);
+  }
+
+  .contact-form-wrapper {
+    background-color: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 8rem 1.25rem 4rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .modules-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .accompagnement-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .accompagnement-visual {
+      order: -1;
+    }
+
+    .experience-badge {
+      width: 160px;
+      height: 160px;
+    }
+
+    .experience-number {
+      font-size: 3rem;
+    }
+
+    .steps-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .step-arrow {
+      transform: rotate(90deg);
+      padding-top: 0;
+    }
+
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>
