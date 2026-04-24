@@ -8,7 +8,7 @@ import ContactForm from '../components/ContactForm.astro';
   <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
-      <p class="hero-badge">Powered by Neosapiens Inc.</p>
+      <p class="hero-badge">by Neosapiens</p>
       <h1>A Dedicated Software Solution for Union Management</h1>
       <p class="hero-subtitle">Over 20 years of expertise serving the union mission</p>
       <div class="hero-actions">
@@ -222,12 +222,15 @@ import ContactForm from '../components/ContactForm.astro';
 
   .hero-badge {
     display: inline-block;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.18em;
     color: var(--color-accent);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 0.55rem 1.4rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
   }
 
   .hero h1 {
